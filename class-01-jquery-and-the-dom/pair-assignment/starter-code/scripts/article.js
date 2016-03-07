@@ -15,7 +15,8 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
 
   // $newArticle.attr('data-category', this.category);
-  $newArticle.find('data-category').attr('data-category', this.category);
+  //$newArticle.find('data-category').attr('data-category', this.category);
+  $newArticle.attr('data-category', this.category);
   $newArticle.find('h1').attr('data-title', this.title);
   $newArticle.find('h1').html(this.title);
   $newArticle.find('a').attr('data-author', this.author);
