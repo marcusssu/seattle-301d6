@@ -89,14 +89,13 @@ articleView.setTeasers = function() {
   //       process any .read-on clicks that happen within child nodes.
   $('.read-on').on('click', function (e){
     e.preventDefault();
-      if ($('.article-body *:nth-of-type(n+2)').is(":visible")){
-        $('.article-body *:nth-of-type(n+2)').hide();
-      } else{
-        $('.article-body *:nth-of-type(n+2)').show();
-      }
-      
-
+      $(this).hide();
+      //find its parent and find article-boy p inside of it and show them
+      $(this).parent().find('section').find('p').show();
   });
+
+
+
 };
 
 // Done: Call all of the above functions, once we are sure the DOM is ready.
