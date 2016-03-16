@@ -50,15 +50,15 @@
 
 
   // Done: Insert an article instance into the database:
-  Article.prototype.insertRecord = function(callback) {
+  Article.prototype.insertRecord = function() {
     webDB.execute(
       [
         {
           'sql': 'INSERT INTO articles(title,category,author,authorUrl,publishedOn,body) VALUES(?,?,?,?,?,?)',
           'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body],
         }
-      ],
-      callback
+      ]
+
     );
   };
 
@@ -106,7 +106,7 @@
     webDB.execute('SELECT * FROM articles;', function(rows) { // done: fill these quotes to 'select' our table.
       if (rows.length) {
         console.log(rows);
-        rows = Article.loadAll(rows);
+        Article.loadAll(rows);
         //raws.loadAll();
 
         // Done: Now, 1st - instanitate those rows with the .loadAll function,
@@ -127,7 +127,7 @@
           webDB.execute('SELECT * FROM articles;', function(rows) { // done: select our now full table
             // done: Now, 1st - instanitate those rows with the .loadAll function,
             console.log(rows);
-            rows = Article.loadAll(rows);
+            Article.loadAll(rows);
             // and 2nd - pass control to the view by calling whatever function argument was passed in.
             articleView.initIndexPage();
           });
