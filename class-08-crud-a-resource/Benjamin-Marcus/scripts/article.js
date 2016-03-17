@@ -23,12 +23,12 @@
   Article.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE articles'+ // what SQL command do we run here inside these quotes?
-      '(title varchar,'+
-      'category varchar,'+
-      'author varchar,'+
-      'authorUrl varchar,'+
-      'publishedOn varchar,'+
-      'body varchar)',
+      '(title,'+
+      'category,'+
+      'author,'+
+      'authorUrl,'+
+      'publishedOn,'+
+      'body)',
 
       function(result) {
         console.log('Successfully set up the articles table.', result);
