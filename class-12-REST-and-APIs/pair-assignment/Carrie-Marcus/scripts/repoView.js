@@ -9,13 +9,18 @@
     $about.show().siblings().hide();
   };
 
-  // TODO: Remember that new Handlebars template? Let's compile it!
+  // DONE: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
-  var render;
+  var render = function(repo) {
+    var template = Handlebars.compile($('#repo-template').text());
+    return template(repo);
+  };
 
   // DONE: If all the data is loaded, we can prep the UI and render the repos.
   repoView.index = function() {
+    console.log('repoview.index is firing');
     ui();
+
 
     // The jQuery `append` method lets us append an entire array of HTML elements at once,
     // So we can use a little FP to transform our data-set into DOM nodes:
